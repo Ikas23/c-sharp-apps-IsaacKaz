@@ -34,7 +34,7 @@ namespace c_sharp_apps_IsaacKaz.sport_app
 
             for (int i = 0; i < team.Length; i++)
             {
-                Console.WriteLine($"{i} - {team[i].GetName()} - {team[i].Getpoint()}");
+                Console.WriteLine(i+1 +" "+ team[i].GetName()+" - "+team[i].Getpoint());
             }
 
         }
