@@ -11,6 +11,7 @@ namespace c_sharp_apps_IsaacKaz.bank_app
         public static void MainEntry()
         {
             Console.WriteLine("BankApp");
+            TestAccount.Test1();
         }
     }
 }

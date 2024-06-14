@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace c_sharp_apps_IsaacKaz.sport_app
 {
-    public class SportAppMain
+    internal class Round
     {
-        public static void MainEntry()
-        {
-            TestSportApp.Test1();
-        }
+        private Game[] games;
     }
+
 }
