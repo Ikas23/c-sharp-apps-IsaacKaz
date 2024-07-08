@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace c_sharp_apps_IsaacKaz.transportation_app
 {
-    public class PassengersAirplain
+
+    public class PassengersAirplain : PublicVehicle
     {
-        private int line;
-        private int id;
         private int enginesNum;
         private int wingLength;
         private int rows;
@@ -18,9 +17,8 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
         private int currentPassengers;
 
         public PassengersAirplain(int line, int id, int enginesNum, int wingLength, int rows, int columns)
+            : base(line, id, 1000, rows * columns - 7)
         {
-            this.Line = line;
-            this.Id = id;
             this.EnginesNum = enginesNum;
             this.WingLength = wingLength;
             this.Rows = rows;
@@ -28,31 +26,40 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
             this.currentPassengers = 0;
         }
 
-        public int Line { get => line; set => line = value; }
-        public int Id { get => id; set => id = value; }
         public int EnginesNum { get => enginesNum; set => enginesNum = value; }
         public int WingLength { get => wingLength; set => wingLength = value; }
         public int Rows { get => rows; set => rows = value; }
         public int Columns { get => columns; set => columns = value; }
-        public int Seats => Rows * Columns; 
+        public int Seats => Rows * Columns - 7;
         public int CurrentPassengers { get => currentPassengers; set => currentPassengers = value; }
         public int RejectedPassengers { get; private set; }
 
-        public void UploadPassengers(int passengers)
+        public override int MaxSpeed
         {
-            if (currentPassengers + passengers <= Seats)
+            get => base.MaxSpeed;
+            set => base.MaxSpeed = value > 1000 ? 1000 : value;
+        }
+
+        public override bool CalculateHasRoom() => CurrentPassengers < Seats;
+
+        public override void UploadPassengers(int passengers)
+        {
+            if (CurrentPassengers + passengers <= Seats)
             {
-                currentPassengers += passengers;
+                CurrentPassengers += passengers;
             }
             else
             {
-                RejectedPassengers = (currentPassengers + passengers) - Seats;
-                currentPassengers = Seats;
+                RejectedPassengers = (CurrentPassengers + passengers) - Seats;
+                CurrentPassengers = Seats;
             }
         }
-    }
+
+        }
 
 }
+
+
 
 
 

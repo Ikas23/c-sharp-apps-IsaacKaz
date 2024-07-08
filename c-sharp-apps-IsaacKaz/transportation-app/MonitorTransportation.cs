@@ -14,7 +14,7 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
 
             //some tests:
             // public PublicVehicle(int line, int id, int maxSpeed, int seats)
-            PublicVehicle p1 = new PublicVehicle(18, 8099065, 50, 80);
+            PublicVehicle p1 = new PublicVehicle(18, 8099065, 0, 80);
             Bus bus = new Bus(1, 2033355, 110, 50, 3);//int line, int id, int maxSpeed, int seats, int doors
             //int line, int id, int enginesNum, int wingLength, int rows, int columns
             PassengersAirplain passengersAirplain1 = new PassengersAirplain(605, 987653, 4, 10, 60, 6);

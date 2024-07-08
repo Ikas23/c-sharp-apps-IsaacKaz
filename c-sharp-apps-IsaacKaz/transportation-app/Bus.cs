@@ -6,47 +6,46 @@ using System.Threading.Tasks;
 
 namespace c_sharp_apps_IsaacKaz.transportation_app
 {
-    public class Bus
+    public class Bus : PublicVehicle
     {
-        private int line;
-        private int id;
-        public int maxSpeed;
-        private int seats;
         private int doors;
         private int currentPassengers;
 
         public Bus(int line, int id, int maxSpeed, int seats, int doors)
+            : base(line, id, maxSpeed, seats)
         {
-            this.Line = line;
-            this.Id = id;
-            this.MaxSpeed = maxSpeed;
-            this.Seats = seats;
             this.Doors = doors;
             this.currentPassengers = 0;
         }
 
-        public int Line { get => line; set => line = value; }
-        public int Id { get => id; set => id = value; }
-        public int MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
-        public int Seats { get => seats; set => seats = value; }
         public int Doors { get => doors; set => doors = value; }
         public int CurrentPassengers { get => currentPassengers; set => currentPassengers = value; }
         public int RejectedPassengers { get; private set; }
-        public bool HasRoom => currentPassengers < Seats;
 
-        public void UploadPassengers(int passengers)
+        public override int MaxSpeed
         {
-            if (currentPassengers + passengers <= Seats)
+            get => base.MaxSpeed;
+            set => base.MaxSpeed = value > 120 ? 120 : value;
+        }
+
+        public override bool CalculateHasRoom() => CurrentPassengers < Seats * 1.1;
+
+        public override void UploadPassengers(int passengers)
+        {
+            int maxPassengers = (int)Math.Ceiling(Seats * 1.1);
+            if (CurrentPassengers + passengers <= maxPassengers)
             {
-                currentPassengers += passengers;
+                CurrentPassengers += passengers;
             }
             else
             {
-                RejectedPassengers = (currentPassengers + passengers) - Seats;
-                currentPassengers = Seats;
+                RejectedPassengers = (CurrentPassengers + passengers) - maxPassengers;
+                CurrentPassengers = maxPassengers;
             }
         }
-    }
+
+      }
+
 
 
 }

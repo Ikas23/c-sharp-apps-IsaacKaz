@@ -6,15 +6,22 @@ using System.Threading.Tasks;
 
 namespace c_sharp_apps_IsaacKaz.transportation_app
 {
-    public class Crone
-    {
-        public readonly int rows, columns;
-        public Crone(int rows, int columns)
+
+        public class Crone
         {
-            this.rows = rows;
-            this.columns = columns;
+            public readonly int rows, columns;
+
+            public Crone(int rows, int columns)
+            {
+                this.rows = rows;
+                this.columns = columns;
+            }
+
+            public int GetSeats() => rows * columns;
+
         }
-    }
+
+    
 
 
 }

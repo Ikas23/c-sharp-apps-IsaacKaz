@@ -7,38 +7,47 @@ using System.Threading.Tasks;
 
 namespace c_sharp_apps_IsaacKaz.transportation_app
 {
+
     public class PassengersTrain : PublicVehicle
     {
         private Crone crone;
         private int cronesAmount;
         private int currentPassengers;
 
-        public PassengersTrain(int line, int id, int maxSpeed, Crone crone, int cronesAmount) : base(line, id, maxSpeed, crone.rows * crone.columns * cronesAmount)
+        public PassengersTrain(int line, int id, int maxSpeed, Crone crone, int cronesAmount)
+            : base(line, id, maxSpeed, crone.GetSeats() * cronesAmount)
         {
             this.Crone = crone;
             this.CronesAmount = cronesAmount;
             this.CurrentPassengers = 0;
         }
 
-
         public Crone Crone { get => crone; set => crone = value; }
         public int CronesAmount { get => cronesAmount; set => cronesAmount = value; }
         public int CurrentPassengers { get => currentPassengers; set => currentPassengers = value; }
         public int RejectedPassengers { get; private set; }
-        public bool HasRoom => currentPassengers < Seats;
 
-        public void UploadPassengers(int passengers)
+        public override int MaxSpeed
         {
-            if (currentPassengers + passengers <= Seats)
+            get => base.MaxSpeed;
+            set => base.MaxSpeed = value > 300 ? 300 : value;
+        }
+
+        public override bool CalculateHasRoom() => CurrentPassengers < Seats;
+
+        public override void UploadPassengers(int passengers)
+        {
+            if (CurrentPassengers + passengers <= Seats)
             {
-                currentPassengers += passengers;
+                CurrentPassengers += passengers;
             }
             else
             {
-                RejectedPassengers = (currentPassengers + passengers) - Seats;
-                currentPassengers = Seats;
+                RejectedPassengers = (CurrentPassengers + passengers) - Seats;
+                CurrentPassengers = Seats;
             }
         }
-    }
+
+   }
 }
 
