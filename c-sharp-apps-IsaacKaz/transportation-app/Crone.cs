@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace c_sharp_apps_IsaacKaz.transportation_app
 {
-    public class TransportationAppMain
+    public class Crone
     {
-        public static void MainEntry()
+        public readonly int rows, columns;
+        public Crone(int rows, int columns)
         {
-            MonitorTransportation.Test1();
-
+            this.rows = rows;
+            this.columns = columns;
         }
     }
+
+
 }
