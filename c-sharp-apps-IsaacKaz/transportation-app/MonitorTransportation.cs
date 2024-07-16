@@ -24,9 +24,9 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
             bool allPassed = true;
 
             //test max speed
-            if (p1.maxSpeed != 0)
+            if (p1.MaxSpeed != 0)
             {
-                Console.WriteLine("Test 1 Error - Max Speed should be {0} but actual is {1}", 0, p1.maxSpeed);
+                Console.WriteLine("Test 1 Error - Max Speed should be {0} but actual is {1}", 0, p1.MaxSpeed);
                 allPassed = false;
             }
             else
@@ -35,9 +35,9 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
 
             }
 
-            if (bus.maxSpeed != 110)
+            if (bus.MaxSpeed != 110)
             {
-                Console.WriteLine("Test 2 Error - Max Speed should be {0} but actual is {1}", 110, bus.maxSpeed);
+                Console.WriteLine("Test 2 Error - Max Speed should be {0} but actual is {1}", 110, bus.MaxSpeed);
                 allPassed = false;
             }
             else
@@ -45,11 +45,11 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
                 Console.WriteLine("Test 2 Passed ");
 
             }
-            bus.maxSpeed = 200;
+            bus.MaxSpeed = 200;
 
-            if (bus.maxSpeed != 110)
+            if (bus.MaxSpeed != 110)
             {
-                Console.WriteLine("Test 3 Error - Max Speed should be {0} but actual is {1}", 110, bus.maxSpeed);
+                Console.WriteLine("Test 3 Error - Max Speed should be {0} but actual is {1}", 110, bus.MaxSpeed);
                 allPassed = false;
             }
             else
@@ -86,7 +86,7 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
             bus.UploadPassengers(20);
 
 
-            if (bus.CurrentPassengers == 55 && bus.RejectedPassengers == 5)
+            if (bus.CurrentPassengers == 55 && bus.RejecetedPassengers == 5)
             {
                 Console.WriteLine("Test 5 Passed ");
 
@@ -96,7 +96,7 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
 
                 Console.WriteLine("Test 5 Error - CurrentPassengers should be {0} but actual is {1} \n" +
                   "And rejected should be {2} but actual is {3} ", 55, bus.CurrentPassengers,
-                  15, bus.RejectedPassengers);
+                  15, bus.RejecetedPassengers);
                 allPassed = false;
 
             }
