@@ -22,10 +22,7 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
             else
                 MaxSpeed = maxSpeed;
         }
-        public Bus() : base()
-        {
-            this.doors = 1;
-        }
+      
         public override int MaxSpeed
         {
             get => this.maxSpeed;
@@ -64,10 +61,7 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
                 }
             }
         }
-        public override string ToString()
-        {
-            return $"{base.ToString()} => Bus: Doors={doors}, BellStop={bellStop}";
-        }
+     
     }
 
 }

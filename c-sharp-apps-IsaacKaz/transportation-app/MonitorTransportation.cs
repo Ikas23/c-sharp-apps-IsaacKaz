@@ -158,7 +158,7 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
 
             //Check that each crone is a different object...
 
-
+            
             if (passengersTrain1.Crone.Equals(passengersTrain1.Crone))
             {
                 Console.WriteLine("Test 9 Error - each crone of the train should be different instance. ");
