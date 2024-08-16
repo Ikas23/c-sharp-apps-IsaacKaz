@@ -12,8 +12,8 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
         public static void MainEntry()
         {
             Console.WriteLine("TransportationApp");
-            MonitorTransportation monitor = new MonitorTransportation();
-            monitor.Test1();
+           // MonitorTransportation monitor = new MonitorTransportation();
+           // monitor.Test1();
         }
     }
 }

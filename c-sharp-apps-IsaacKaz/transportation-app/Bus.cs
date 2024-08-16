@@ -22,7 +22,6 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
             else
                 MaxSpeed = maxSpeed;
         }
-      
         public override int MaxSpeed
         {
             get => this.maxSpeed;
