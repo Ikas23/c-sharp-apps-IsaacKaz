@@ -12,8 +12,7 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
 
         public Plane(Driver driver, decimal maxWeight, decimal maxVolume, bool isReadyToDrive, bool isOverloaded,
             StorageStructure nextPort, StorageStructure currentPort, int travelID, List<IPortable> cargoItems,
-            Dictionary<string, decimal> expectedPayment, int distanceToNextPort, IShippingPriceCalculator priceCalculator,
-            IContainable storageRoom)
+            Dictionary<string, decimal> expectedPayment, int distanceToNextPort, IShippingPriceCalculator priceCalculator,IContainable storageRoom)
             : base(driver, maxWeight, maxVolume, isReadyToDrive, isOverloaded, nextPort, currentPort, travelID, cargoItems, expectedPayment, distanceToNextPort, priceCalculator)
         {
             StorageRoom = storageRoom;
