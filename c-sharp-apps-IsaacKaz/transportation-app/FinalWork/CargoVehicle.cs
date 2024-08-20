@@ -180,11 +180,28 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
         }
         public virtual string GetPricingList()
         {
-            decimal price = 0;  
-            for (int i = 0; i < CargoItems.Count; i++)
-            { 
+            decimal totalPrice = 0;
+            StringBuilder pricingList = new StringBuilder();
+
+            if (CargoItems == null)
+            {
+                return "No items its empty";
             }
-            return null;
+
+            for (int i = 0; i < CargoItems.Count; i++)
+            {
+                var item = CargoItems[i]; 
+                decimal itemPrice = PriceCalculator.CalculatePrice(item, DistanceToNextPort);
+
+                pricingList.AppendLine($"Item: {item.GetType().Name}, Price: {itemPrice:C}");
+
+                totalPrice += itemPrice;
+            }
+
+            pricingList.AppendLine("-----------------------------");
+            pricingList.AppendLine($"Total Cost for the trip: {totalPrice:C}");
+
+            return pricingList.ToString();
         }
 
 

@@ -35,18 +35,7 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
             }
             return false;
         }
-        public override StorageStructure GetLocation()
-        {
-            return this.location;
-        }
-        public override bool IsLoaded()
-        {
-            if (this.loaded == true)
-            {
-                return true;
-            }
-            return false;
-        }
+        
         public override bool IsPackaged()
         {
             if (this.packaged == true)
@@ -55,15 +44,37 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
             }
             return false;
         }
+        public override bool IsLoaded()
+        {
+            return this.loaded;
+        }
+
+        public override StorageStructure GetLocation()
+        {
+            return this.location;
+        }
+
         public override void PackageItem()
         {
             this.packaged = true;
-            Console.WriteLine("the chair has been package");
+            Console.WriteLine("The chair has been packaged.");
         }
+
         public override void UnPackage()
         {
             this.packaged = false;
-            Console.WriteLine("the chair has been unpackage");
+            Console.WriteLine("The chair has been unpackaged.");
         }
+
+        public void SetLocation(StorageStructure location)
+        {
+            this.location = location;
+        }
+
+        public void SetLoaded(bool loaded)
+        {
+            this.loaded = loaded;
+        }
+
     }
 }

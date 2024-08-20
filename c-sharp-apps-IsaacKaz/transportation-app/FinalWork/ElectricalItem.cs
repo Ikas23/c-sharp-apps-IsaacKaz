@@ -16,8 +16,6 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
         private bool Fragile;
         private StorageStructure location;
         private bool isLoaded;
-
-
         public ElectricalItem(int width, int length, int height, decimal weight, bool Fragile)
         {
             this.size = new decimal[] { width, length, height };

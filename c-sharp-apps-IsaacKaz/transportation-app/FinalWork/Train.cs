@@ -84,8 +84,30 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
             }
         }
 
-        private void GetPricingList()
-        { }
+        public void GetPricingList()
+        {
+            if (CargoItems == null || CargoItems.Count == 0)
+            {
+                Console.WriteLine("Empty nothing to calculate");
+                return;
+            }
+
+            Console.WriteLine("Pricing List:");
+            Console.WriteLine("-----------------------------");
+
+            decimal totalCost = 0;
+            for (int i = 0; i < CargoItems.Count; i++)
+            {
+                var item = CargoItems[i]; 
+                decimal itemPrice = PriceCalculator.CalculatePrice(item, DistanceToNextPort);
+                Console.WriteLine($"Item: {item.GetType().Name}, Price: {itemPrice:C}");
+
+                totalCost += itemPrice;
+            }
+
+            Console.WriteLine("-----------------------------");
+            Console.WriteLine($"Total Cost for the trip: {totalCost:C}");
+        }
     }
 
     public class Crone

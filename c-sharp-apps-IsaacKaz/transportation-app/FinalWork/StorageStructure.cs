@@ -75,7 +75,7 @@ namespace c_sharp_apps_IsaacKaz.transportation_app
         {
             for (int i = 0; i < items.Count; i++)
             {
-                if (Load(items[i]) == false)
+                if (Unload(items[i]) == false)
                 {
                     return false;
                 }
